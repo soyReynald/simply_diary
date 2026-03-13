@@ -53,6 +53,26 @@
         const today = new Date();
         const date = new Date().toDateString();
         document.getElementById("date").innerHTML = `${date}`;
+
+        //* Let's call the JSON object and show it into the console
+        // https://jsonsaver.com/api/v1/jsonstore/public/diary_object_json/
+
+        async function getData() {
+            const url = "https://jsonsaver.com/api/v1/jsonstore/public/diary_object_json/";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                console.log(result);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        getData();
     </script>
 </body>
 
