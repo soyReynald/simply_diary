@@ -2,3 +2,12 @@ main, header {
     width: 70vw;
     margin: 10% auto;
 }
+
+#diary_showcase_ {
+    border-radius: 7px;
+    border: 1px solid #000000;
+    padding: 2.6%;
+    background-color: #0000009e;
+    margin-top: 3vh;
+    color: white;
+}
