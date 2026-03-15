@@ -44,6 +44,9 @@
         </section>
 
         <section id="diary_showcase_">
+            <span>
+                March 15, 2026
+            </span>
             <h3>
             </h3>
             <br/>
@@ -72,6 +75,7 @@
 
                 const result = await response.json();
                 // console.log(result);
+                document.querySelector("#diary_showcase_ span").innerHTML = result.data.global_diary_Object.object.title;
                 document.querySelector("#diary_showcase_ h3").innerHTML = result.data.global_diary_Object.title;
                 document.querySelector("#diary_showcase_ p").innerHTML = result.data.global_diary_Object.object.diary_text;
             } catch (error) {

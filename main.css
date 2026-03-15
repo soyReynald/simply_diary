@@ -10,4 +10,14 @@ main, header {
     background-color: #0000009e;
     margin-top: 3vh;
     color: white;
+    position: relative;
+}
+
+#diary_showcase_ span {
+    position: absolute;
+    right: 8%;
+    top: 4%;
+    padding: 10px;
+    background-color: #000;
+    margin-top: -10px;
 }
