@@ -62,26 +62,6 @@
         const date = new Date().toDateString();
         document.getElementById("date").innerHTML = `${date}`;
 
-
-        // Creating an user to be retrieve on our database easier as JSON
-        async function login() {
-            const url = "";
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Response status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                // console.log(result);
-                document.querySelector("#diary_showcase_ span").innerHTML = result.data.global_diary_Object.object.title;
-                document.querySelector("#diary_showcase_ h3").innerHTML = result.data.global_diary_Object.title;
-                document.querySelector("#diary_showcase_ p").innerHTML = result.data.global_diary_Object.object.diary_text;
-            } catch (error) {
-                console.error(error.message);
-            }
-        }
-
         
         //* Let's call the JSON object and show it into the console
         // https://jsonsaver.com/api/v1/jsonstore/public/diary_object_json/
