@@ -24,7 +24,7 @@
 <script type="text/javascript">
         // Creating an user to be retrieve on our database easier as JSON
         async function login() {
-            const url = "";
+            const url = "http://localhost/simply_diary/api/users.php";
             try {
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -32,13 +32,12 @@
                 }
 
                 const result = await response.json();
-                // console.log(result);
-                document.querySelector("#diary_showcase_ span").innerHTML = result.data.global_diary_Object.object.title;
-                document.querySelector("#diary_showcase_ h3").innerHTML = result.data.global_diary_Object.title;
-                document.querySelector("#diary_showcase_ p").innerHTML = result.data.global_diary_Object.object.diary_text;
+                console.log(result);
             } catch (error) {
                 console.error(error.message);
             }
         }
+
+        login();
 </script>
 </html>
