@@ -1,11 +1,21 @@
 <?php
 session_start();
+$_SESSION['username'] = $data['username'];
+$_SESSION['password'] = $data['password'];
+$_SESSION['salt'] = $data['salt'];
+
+$encryptedPSW = SHA1($_SESSION['password']).$_SESSION['salt'];
+if (isset($encryptedPSW)) {
+    // 3. Organize the code so that the code also bring forth an answer to make a redirection [ ⚒️ ]
+    
+}
+
 /*
 Steps
 
 1. SHOW UP THE JSON in the CLIENT-SIDE - ✔️ - TESTING 🧭.
 2. Compare SAME PASSWORD with A COPY OF IT ✔️.
-3. Organize the code so that the code also bring forth an answer to make a redirection ✔️ - Check in the clientside [⚠️].
+3. Organize the code so that the code also bring forth an answer to make a redirection ✔️ - Check in the clientside [✔️].
 4. To place a conditional IN THE BEGININING of the file to test IF it is TO BE from an USER that is approved, tested or permitted.
 4.1 PLACING a CONDITIONAL to REDIRECT FROM php THE USER in case that he was GRANTED or ACCESS permitted.
 
