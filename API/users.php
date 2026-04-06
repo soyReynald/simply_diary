@@ -5,9 +5,18 @@ $_SESSION['password'] = $data['password'];
 $_SESSION['salt'] = $data['salt'];
 
 $encryptedPSW = SHA1($_SESSION['password']).$_SESSION['salt'];
+
 if (isset($encryptedPSW)) {
-    // 3. Organize the code so that the code also bring forth an answer to make a redirection [ ⚒️ ]
+    // 3. Organize the code so that the code also bring forth an answer to make a redirection [ ⚒️ ].
     
+} else {
+    // - Call the user info from the database MySQL [ ⚒️ ].
+    $insertStatement = `SELECT username_mysql, SHA1(password_mysql) FROM users`;
+
+    // Variables to be overwrited...
+    $_SESSION['username_mysql'] = "mySQL_username";
+    $_SESSION['password_mysql'] = "mySQL_password";
+    $_SESSION['salt_mysql'] = "mySQL_salt";
 }
 
 /*
