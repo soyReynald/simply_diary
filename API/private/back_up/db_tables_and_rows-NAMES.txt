@@ -1,0 +1,41 @@
+DB:
+simply_diary_db
+
+Table:
+users_table_
+
+Rows #:
+5
+
+Rows names:
+id - - - - INT (11).
+user_name - - - - VARCHAR (33).
+password - - - - TEXT.
+full_name - - - - VARCHAR (45).
+date_of_registry - - - - DATETIME.
+
+----
+
+Date: 4/15/20026.
+
+/
+
+DB:
+simply_diary_db
+
+Table:
+diary_note_space_
+
+Rows #:
+5
+
+Rows names:
+id - - - - INT (11).
+text_space - - - - VARCHAR (33).
+user_id_related - - - - INT (11).
+date - - - - datetime.
+title - - - - varchar (28).
+
+----
+
+Date: 4/15/20026 - 4:30 p.m.
