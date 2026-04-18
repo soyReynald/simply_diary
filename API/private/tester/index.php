@@ -37,7 +37,7 @@ if ($con_string->connect_error) {
 </h1>
 
 <main>
-    <p><?php echo $row["text_area"]; ?></p>
+    <p><?php echo $row["text_space_"]; ?></p>
 </main>
 
 <?php
