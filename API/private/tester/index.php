@@ -10,7 +10,7 @@ require_once('../conexion.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body style="background-color: #c03e3e; font-family: Arial, sans-serif;">
+<body style="background-color: #fefefe; font-family: Arial, sans-serif; color: black; text-align: center;">
 <?php
 
 if ($con_string->connect_error) {
