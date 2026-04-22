@@ -8,7 +8,16 @@ require_once('../conexion.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        article {
+            width: 80vw;
+            margin: 10% auto;
+            border-radius: 2%;
+            padding: 5px
+        }
+    </style>
     <title>Document</title>
+
 </head>
 <body style="background-color: #fefefe; font-family: Arial, sans-serif; color: black; text-align: center;">
 <?php
@@ -31,15 +40,15 @@ if ($con_string->connect_error) {
     
 ?>
 
-
+<article>
 <h1>
     <?php echo $row["title"]; ?>
 </h1>
 
-<main>
+<aside>
     <p><?php echo $row["text_space_"]; ?></p>
-</main>
-
+</aside>>
+</article>
 <?php
     
     endwhile;
