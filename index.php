@@ -1,3 +1,8 @@
+<?php
+// Requesting the conexion
+require_once('API/private/conexion.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en" version="5">
 <!-- Commentary to place the date of every update: Up today: 4/15/2026; Had to reset the computer. -->
@@ -23,12 +28,21 @@
                     <div class="border-b border-gray-900/10 pb-12">
 
                             <div class="col-span-full">
-                                <label for="about" class="block text-sm/6 font-medium text-gray-900">Diary text:</label>
+                                <label for="about" class="block text-sm/6 font-medium text-gray-900">Diary text:</label>                                
                                 <div class="mt-2">
                                     <textarea id="about" name="about" rows="3"
-                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"></textarea>
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                        
+                                    </textarea>
                                 </div>
-                                <p class="mt-3 text-sm/6 text-gray-600">Write a few sentences about your day.</p>
+                               
+                                <p class="mt-3 text-sm/6 text-gray-600">
+                                        
+                                </p>
+
+                                 
+
+                                    
                             </div>
                         </div>
                     </div>
@@ -42,8 +56,25 @@
             </form>
 
         </section>
+         <?php
+        if ($con_string->connect_error) {
+            die("Connection failed: " . $con_string->connect_error);
+        };
+            //echo '<h1 style="color: black; margin: 15% auto; text-align: center; font-weight: 20px;">Connected succesfully</h1>';
+            //! Conexion was FULLY tested ...
 
+            $sql = "SELECT * FROM diary_note_space_";
+            // Execute the SQL query
+            $result = $con_string->query($sql);
+
+            // Process the result set
+            if ($result->num_rows > 0) {
+            // Output data of each row
+            while($row = $result->fetch_assoc()):
+            
+        ?>
         <section id="diary_showcase_">
+            
             <span>
                 March 15, 2026
             </span>
@@ -52,9 +83,19 @@
             <br/>
             <br/>
             <p>
-                Sample text.
+                <?php echo $row["title"]; ?>
+                <?php echo $row["text_space_"]; ?>
             </p>
         </section>
+
+        <?php
+            endwhile;
+
+                if($row = $result->fetch_assoc()) {
+                    echo "0 results";
+                }
+            };
+        ?>
 
     </main>
     <script type="text/javascript">
@@ -87,8 +128,14 @@
             }
         }
 
-        getData();
+        // getData();
     </script>
+    
+    
 </body>
 
 </html>
+<?php
+    // Conexion got RESULTS successfully.
+    mysqli_close($con_string); // Is a good practice to close the conexion.
+?>
