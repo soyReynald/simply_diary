@@ -24,7 +24,6 @@ require_once('../conexion.php');
 
 if ($con_string->connect_error) {
     die("Connection failed: " . $con_string->connect_error);
-    exit();
 };
     //echo '<h1 style="color: black; margin: 15% auto; text-align: center; font-weight: 20px;">Connected succesfully</h1>';
     //! Conexion was FULLY tested ...
@@ -47,7 +46,7 @@ if ($con_string->connect_error) {
 
 <aside>
     <p><?php echo $row["text_space_"]; ?></p>
-</aside>>
+</aside>
 </article>
 <?php
     
