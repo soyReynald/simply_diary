@@ -57,45 +57,10 @@ require_once('API/private/conexion.php');
 
         </section>
          <?php
-        if ($con_string->connect_error) {
-            die("Connection failed: " . $con_string->connect_error);
-        };
-            //echo '<h1 style="color: black; margin: 15% auto; text-align: center; font-weight: 20px;">Connected succesfully</h1>';
-            //! Conexion was FULLY tested ...
 
-            $sql = "SELECT * FROM diary_note_space_";
-            // Execute the SQL query
-            $result = $con_string->query($sql);
+         include_once("views/diary_text_view.php");
 
-            // Process the result set
-            if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()):
-            
-        ?>
-        <section id="diary_showcase_">
-            
-            <span>
-                March 15, 2026
-            </span>
-            <h3>
-            </h3>
-            <br/>
-            <br/>
-            <p>
-                <?php echo $row["title"]; ?>
-                <?php echo $row["text_space_"]; ?>
-            </p>
-        </section>
-
-        <?php
-            endwhile;
-
-                if($row = $result->fetch_assoc()) {
-                    echo "0 results";
-                }
-            };
-        ?>
+         ?>
 
     </main>
     <script type="text/javascript">
