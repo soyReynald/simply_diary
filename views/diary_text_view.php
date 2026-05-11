@@ -1,4 +1,5 @@
 <?php
+        include_once("../simply_diary/controller/php_statements_.php");
 
         if ($con_string->connect_error) {
             die("Connection failed: " . $con_string->connect_error);
@@ -6,7 +7,7 @@
             //echo '<h1 style="color: black; margin: 15% auto; text-align: center; font-weight: 20px;">Connected succesfully</h1>';
             //! Conexion was FULLY tested ...
 
-            $sql = "SELECT * FROM diary_note_space_";
+            
             // Execute the SQL query
             $result = $con_string->query($sql);
 
