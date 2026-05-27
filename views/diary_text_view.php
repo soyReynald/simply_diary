@@ -4,12 +4,14 @@
         if ($con_string->connect_error) {
             die("Connection failed: " . $con_string->connect_error);
         };
+
+            $Sql_query = new Data();
             //echo '<h1 style="color: black; margin: 15% auto; text-align: center; font-weight: 20px;">Connected succesfully</h1>';
             //! Conexion was FULLY tested ...
 
             
             // Execute the SQL query
-            $result = $con_string->query($sql);
+            $result = $con_string->query($Sql_query->return_details_("print_data"));
 
             // Process the result set
             if ($result->num_rows > 0) {

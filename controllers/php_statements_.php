@@ -1,6 +1,6 @@
 <?php
 
-class data {
+class Data {
     public string $string;
 
     function selectData () {
@@ -8,8 +8,8 @@ class data {
     }
 
     function return_details_(string $functionality) {
-        if($this->selectData() & $functionality == "print_data") {
-            $this->selectData();
+        if($this->selectData() && $functionality == "print_data") {
+            return $this->selectData();
         }
     }
 }
