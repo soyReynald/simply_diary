@@ -29,7 +29,7 @@
                         </p>
                     </section>";
                     // Whoever put the hand on the CLOW and keeps THE push and back:
-                                                        // Has no dignity to enter to the Kingdom of God.
+                    // Has no dignity to enter to the Kingdom of God.
             };
 
                 if($row = $result->fetch_assoc()) {
