@@ -1,5 +1,8 @@
 <?php
 
+/// THIS FILE SHOULD BE CALLED: DataController.php
+// To be updated: 6/14/2026.
+
 class Data {
     public string $string;
 

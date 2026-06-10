@@ -23,14 +23,14 @@ require_once('API/private/conexion.php');
     <main>
         <!-- Section to insert text -->
         <section id="text_saver">
-            <form action="" method="post"> <!-- adding method and action DATE: 6/7/2026 -->
+            <form action="./controllers/process_functions.php" method="POST"> <!-- Done: 6/10/2026 -->
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
 
                             <div class="col-span-full">
-                                <label for="about" class="block text-sm/6 font-medium text-gray-900">Diary text:</label>                                
+                                <label for="diary_text" class="block text-sm/6 font-medium text-gray-900">Diary text:</label>                                
                                 <div class="mt-2">
-                                    <textarea id="about" name="about" rows="3"
+                                    <textarea id="diary_text" name="diary_text" rows="3"
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                                         
                                     </textarea>
