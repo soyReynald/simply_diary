@@ -23,7 +23,7 @@ require_once('API/private/conexion.php');
     <main>
         <!-- Section to insert text -->
         <section id="text_saver">
-            <form action="./controllers/process_functions.php" method="POST"> <!-- Done: 6/10/2026 -->
+            <form action="./controllers/InsertDataClass.php" method="POST"> <!-- Done: 6/10/2026 -->
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
 

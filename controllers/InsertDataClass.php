@@ -2,23 +2,32 @@
 require_once(__DIR__ . "/../API/private/conexion.php");
 
 class InsertData {
-    private $text_from_diary;
+    public $text_from_diary;
+    public $con_string;
+    private $sql;
 
-    public function __construct(string $queryVariable) {
-        $this->text_from_diary = $queryVariable;
+    public function __construct(string $text_from_diary, mysqli $con_string) {
+        $this->text_from_diary = $text_from_diary;
+        $this->con_string = $con_string;
     }
 
-    function insertData () {
-        $this->string = "INSERT INTO diary_note_space_ (`text_space_`) VALUES ('{$this->text_from_diary}')";
-        if ($con_string->query($this->text_from_diary) === TRUE) { // THIS COMPARISON: Is needed.
-            echo "Data inserted"; // TO TEST this part
+    function insertData_function (string $text_from_diary, mysqli $con_string) {
+        $this->sql = "INSERT INTO diary_note_space_ (`text_space_`) VALUES ('{$this->text_from_diary}')";
+        if ($this->$con_string->query($this->sql) === TRUE) { 
+            echo "Data inserted"; // TO TEST this part.
             // we then refresh
         } else {
-            die("Error".$con_string->error_reporting); //! to fix the con string from this class
+            die("Error"); 
         }
 
-        $con_string->close();
+        $con_string->close(); // TO FIX con_string variable in the next video
     }
 }
 
-?>
+if(isset($_POST) && isset($_POST['diary_text'])) {
+    $text_to_diary = mysqli_real_escape_string($con_string, $_POST['diary_text']);
+
+    $text_from_diary = $_POST['diary_text'];
+    $insertData = new InsertData($text_from_diary, $con_string);
+    $insertData->insertData_function($text_to_diary, $con_string);
+}
