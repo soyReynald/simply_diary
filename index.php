@@ -64,9 +64,7 @@ require_once('API/private/conexion.php');
 
     </main>
     <script type="text/javascript">
-        const today = new Date();
-        const date = new Date().toDateString();
-        document.getElementById("date").innerHTML = `${date}`;
+        
 
         
         //* Let's call the JSON object and show it into the console
@@ -74,6 +72,11 @@ require_once('API/private/conexion.php');
         //# Returning to our projects, this time the diary - Returning from MongoDB [U = 3/24/2026].
 
 
+        /*
+
+        const today = new Date();
+        const date = new Date().toDateString();
+        document.getElementById("date").innerHTML = `${date}`;
 
         async function getData() {
             const url = "https://jsonsaver.com/api/v1/jsonstore/public/diary_object_json_2/";
@@ -92,6 +95,9 @@ require_once('API/private/conexion.php');
                 console.error(error.message);
             }
         }
+
+        */
+
 
         // getData();
     </script>

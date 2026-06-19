@@ -14,12 +14,13 @@
             if ($result->num_rows > 0) {
             // Output data of each row
             while($row = $result->fetch_assoc()) {
+                $date_from_diary_article = new DateTime($row['date']);
                  
                 echo "<section id='diary_showcase_'>
             
-                        <span>Current Date: 
+                        <span>Diary article date: 
                     ".
-                     date("F d, Y")
+                     $date_from_diary_article->format("F d, Y")
                     ."
                         </span>
                         
