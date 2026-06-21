@@ -17,7 +17,7 @@ require_once('API/private/conexion.php');
 <body>
     <header>
         <span>
-            <span id="date"></span>
+            <span id="date"><?=  date("F j, Y"); ?></span>
         </span>
     </header>
     <main>
@@ -26,7 +26,14 @@ require_once('API/private/conexion.php');
             <form action="./controllers/InsertDataClass.php" method="POST"> <!-- Done: 6/10/2026 -->
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
-
+                            <div class="col-span-full">
+                                <label for="diary_title" class="block text-sm/6 font-medium text-gray-900">Diary title:</label>                                
+                                <div class="mt-2">
+                                    <input type="text" name="diary_title" id="diary_title"
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                </div>
+                                    
+                            </div>
                             <div class="col-span-full">
                                 <label for="diary_text" class="block text-sm/6 font-medium text-gray-900">Diary text:</label>                                
                                 <div class="mt-2">
@@ -40,9 +47,6 @@ require_once('API/private/conexion.php');
                                         
                                 </p>
 
-                                 
-
-                                    
                             </div>
                         </div>
                     </div>
