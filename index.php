@@ -19,6 +19,7 @@ require_once('API/private/conexion.php');
         <span>
             <span id="date"><?=  date("F j, Y"); ?></span>
         </span>
+        <img src="public/img/logo_design.png" />
     </header>
     <main>
         <!-- Section to insert text -->
@@ -67,44 +68,6 @@ require_once('API/private/conexion.php');
          ?>
 
     </main>
-    <script type="text/javascript">
-        
-
-        
-        //* Let's call the JSON object and show it into the console
-        // https://jsonsaver.com/api/v1/jsonstore/public/diary_object_json/
-        //# Returning to our projects, this time the diary - Returning from MongoDB [U = 3/24/2026].
-
-
-        /*
-
-        const today = new Date();
-        const date = new Date().toDateString();
-        document.getElementById("date").innerHTML = `${date}`;
-
-        async function getData() {
-            const url = "https://jsonsaver.com/api/v1/jsonstore/public/diary_object_json_2/";
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Response status: ${response.status}`);
-                }
-
-                const result = await response.json();
-                // console.log(result);
-                document.querySelector("#diary_showcase_ span").innerHTML = result.data.global_diary_Object.object.title;
-                document.querySelector("#diary_showcase_ h3").innerHTML = result.data.global_diary_Object.title;
-                document.querySelector("#diary_showcase_ p").innerHTML = result.data.global_diary_Object.object.diary_text;
-            } catch (error) {
-                console.error(error.message);
-            }
-        }
-
-        */
-
-
-        // getData();
-    </script>
     
     
 </body>

@@ -29,8 +29,9 @@
                             {$row["text_space_"]}
                         </p>
 
-                        <button class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Update</button>
-                        <button class='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded'>Delete</button>
+                        <br/>
+                        <a id='update_btn' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' href=''>Update</a>
+                        <a id='delete_btn' class='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded' href='./controllers/php_statements_.php?delete_id={$row["id"]}'>Delete</a>
                     </section>";
                     // Whoever put the hand on the CLOW and keeps THE push and back:
                     // Has no dignity to enter to the Kingdom of God.

@@ -1,7 +1,7 @@
 <?php
+require_once("./API/private/conexion.php");
 
-/// THIS FILE SHOULD BE CALLED: DataController.php
-// To be updated: 6/14/2026.
+/// THIS FILE SHOULD BE CALLED: DataController.php.
 
 class Data {
     public string $string;
@@ -16,5 +16,19 @@ class Data {
         }
     }
 }
+
+
+if(isset($_GET['delete_id'])){ 
+
+    $id = mysqli_real_escape_string($con_string, $_GET['delete_id'] ?? null);
+
+    $testing_statement = <<<SQL_STATEMENT
+    "DELETE from diary_note_space_ WHERE id = '{$id}'"
+    SQL_STATEMENT;
+
+    echo $testing_statement;
+
+}
+
 
 ?>
