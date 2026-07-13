@@ -30,7 +30,7 @@
                         </p>
 
                         <br/>
-                        <a id='update_btn' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' href=''>Update</a>
+                        <a id='update_btn' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' href='./controllers/php_statements_.php?update_id={$row["id"]}'>Update</a>
                         <a id='delete_btn' class='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded' href='./controllers/php_statements_.php?delete_id={$row["id"]}'>Delete</a>
                     </section>";
                     // Whoever put the hand on the CLOW and keeps THE push and back:
