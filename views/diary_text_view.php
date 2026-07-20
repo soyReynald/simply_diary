@@ -5,7 +5,7 @@
             die("Connection failed: " . $con_string->connect_error);
         };
 
-            $Sql_query = new Data();
+            $Sql_query = new Data($con_string);
             
             // Execute the SQL query
             $result = $con_string->query($Sql_query->return_details_("print_data"));
