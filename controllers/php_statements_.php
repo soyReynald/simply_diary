@@ -30,8 +30,29 @@ class Data {
 
         $sql_query = $this->con_string->query($this->result);
         if ($sql_query === TRUE) { 
-            echo "Data deleted"; // TO TEST this part.
-            // we then refresh
+            echo "Data deleted"; 
+            // we then refresh ✨
+        } else {
+            die("Error"); 
+        }
+
+        $this->con_string->close(); // TO FIX con_string variable in the next video
+    }
+
+    function updateData (int $id, mysqli $con_string, string $text_string_) {
+        $id = mysqli_real_escape_string($con_string, $_GET['update_data_id'] ?? null);
+        $text_string_ = mysqli_real_escape_string($con_string, $_GET['update_data_text'] ?? null);
+        // To-do: to study the UPDATE statement in SQL and implement it here.
+        $this->result = <<<INPUT
+        UPDATE diary_note_space_
+        SET text_space_ = '{$text_string_}'
+        WHERE id = '{$id}'
+        INPUT;
+
+        $sql_query = $this->con_string->query($this->result);
+        if ($sql_query === TRUE) { 
+            echo "Data updated"; // TO TEST this part.
+            // we then refresh ✨
         } else {
             die("Error"); 
         }
@@ -41,6 +62,7 @@ class Data {
 }
 
 // DELETE section
+// UPDATE section - IN progress 50% of 100% done.
 
 if(isset($_GET['delete_id'])){ 
 
