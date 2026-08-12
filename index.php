@@ -28,15 +28,15 @@ require_once('API/private/conexion.php');
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
                             <div class="col-span-full">
-                                <label for="diary_title" class="block text-sm/6 font-medium text-gray-900">Diary title:</label>                                
+                                <label for="diary_title" class="block text-sm/6 font-medium text-white-900">Diary title:</label>                                
                                 <div class="mt-2">
                                     <input type="text" name="diary_title" id="diary_title"
-                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-white-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-white-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
                                 </div>
                                     
                             </div>
                             <div class="col-span-full">
-                                <label for="diary_text" class="block text-sm/6 font-medium text-gray-900">Diary text:</label>                                
+                                <label for="diary_text" class="block text-sm/6 font-medium text-white-900">Diary text:</label>                                
                                 <div class="mt-2">
                                     <textarea id="diary_text" name="diary_text" rows="3"
                                         class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
@@ -71,6 +71,28 @@ require_once('API/private/conexion.php');
     
     
 </body>
+
+<script type="text/javascript">
+    function activate_editable () {
+        // ES: Php, C.
+
+        // EN: Python, Java.
+
+        // Hindi: JS, C++ [extra liked language: PHP].
+
+        // Portuguese: Pascal, Cobol, Go, ...
+        
+        // Chinese/Japan: JS, SQL, ...
+
+        document.querySelector("#diary_showcase_ p").setAttribute("contenteditable", true);
+        document.querySelector("#diary_showcase_ h1").setAttribute("contenteditable", true);
+
+        document.querySelector("#diary_showcase_").setAttribute("style", "color: #000; background-color: #fff");
+        document.querySelector("#diary_showcase_ span").setAttribute("style", "color: #fff;");
+        document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
+        document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
+    }
+</script>
 
 </html>
 <?php
