@@ -1,0 +1,4 @@
+1. Changing color button - Done.
+2. Changing background color - Done.
+3. Changing text color - Done.
+4. Cursor activation on button hover - Done.

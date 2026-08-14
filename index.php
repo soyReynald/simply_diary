@@ -84,6 +84,7 @@ require_once('API/private/conexion.php');
         
         // Chinese/Japan: JS, SQL, ...
 
+        // TO UPDATE.
         document.querySelector("#diary_showcase_ p").setAttribute("contenteditable", true);
         document.querySelector("#diary_showcase_ h1").setAttribute("contenteditable", true);
 
@@ -91,6 +92,26 @@ require_once('API/private/conexion.php');
         document.querySelector("#diary_showcase_ span").setAttribute("style", "color: #fff;");
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
         document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
+
+        document.querySelector("#diary_showcase_").classList.add("text_being_edited");
+
+        // AFTER the edition
+        document.querySelector("#update_btn").setAttribute("onclick", "javascript:editate_text()");
+        
+    }
+
+    function editate_text () {
+        var testVar = document.querySelector("#diary_showcase_").classList.contains("text_being_edited");
+
+        if (testVar) {
+            var id_to_update = parseInt(document.querySelector("#update_id_text").innerHTML);
+            var text_to_update = document.querySelector("#text_to_update").innerHTML;
+
+            // update button option
+            /// To test HERE...
+            window.location.href= './controllers/php_statements_.php?update_id='+id_to_update+'&text_to_update='+text_to_update;
+        }
+       
     }
 </script>
 
