@@ -73,7 +73,11 @@ require_once('API/private/conexion.php');
 </body>
 
 <script type="text/javascript">
-    function activate_editable () {
+    function activate_editable (id) {
+
+        var id = id;
+        
+        // Next tutorial: document.querySelector("main").childNodes; [to get the child from main]
         // ES: Php, C.
 
         // EN: Python, Java.
@@ -85,15 +89,15 @@ require_once('API/private/conexion.php');
         // Chinese/Japan: JS, SQL, ...
 
         // TO UPDATE.
-        document.querySelector("#diary_showcase_ p").setAttribute("contenteditable", true);
-        document.querySelector("#diary_showcase_ h1").setAttribute("contenteditable", true);
+        document.querySelector("#diary_showcase_#_" + id + " p").setAttribute("contenteditable", true);
+        document.querySelector("#diary_showcase_#_ " + id + " h1").setAttribute("contenteditable", true);
 
-        document.querySelector("#diary_showcase_").setAttribute("style", "color: #000; background-color: #fff");
-        document.querySelector("#diary_showcase_ span").setAttribute("style", "color: #fff;");
+        document.querySelector("#diary_showcase_#_" + id).setAttribute("style", "color: #000; background-color: #fff");
+        document.querySelector("#diary_showcase_#_" + id + " span").setAttribute("style", "color: #fff;");
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
         document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
 
-        document.querySelector("#diary_showcase_").classList.add("text_being_edited");
+        document.querySelector("#diary_showcase_#_" + id).classList.add("text_being_edited");
 
         // AFTER the edition
         document.querySelector("#update_btn").setAttribute("onclick", "javascript:editate_text()");
@@ -101,7 +105,7 @@ require_once('API/private/conexion.php');
     }
 
     function editate_text () {
-        var testVar = document.querySelector("#diary_showcase_").classList.contains("text_being_edited");
+        var testVar = document.querySelector("#diary_showcase_#_"+ id).classList.contains("text_being_edited");
 
         if (testVar) {
             var id_to_update = parseInt(document.querySelector("#update_id_text").innerHTML);

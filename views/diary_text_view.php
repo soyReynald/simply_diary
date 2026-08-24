@@ -16,7 +16,7 @@
             while($row = $result->fetch_assoc()) {
                 $date_from_diary_article = new DateTime($row['date']);
                  
-                echo "<section id='diary_showcase_'>
+                echo "<section id='diary_showcase_#_{$row["id"]}'>
             
                         <span>Diary article date: 
                     ".
@@ -24,7 +24,7 @@
                     ."
                     </span>
                     
-                        <span style='hidden' id='update_id_text'>{$row["id"]}</span>    
+                        <span style='display: none;' id='update_id_text'>{$row["id"]}</span>    
                         <h1 contenteditable='false' style='text-align:center;'>{$row["title"]} </h1></br>
                         <p contenteditable='false' id='text_to_update'>    
                             {$row["text_space_"]}
@@ -32,7 +32,7 @@
 
                         <br/>
                         
-                        <button id='update_btn' onclick='javascript:activate_editable()' class='cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Update</button>
+                        <button id='update_btn' onclick='javascript:activate_editable({$row["id"]})' class='cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Update</button>
                         <a id='delete_btn' class='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded' href='./controllers/php_statements_.php?delete_id={$row["id"]}'>Delete</a>
                     </section>";
 
