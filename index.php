@@ -89,32 +89,73 @@ require_once('API/private/conexion.php');
         // Chinese/Japan: JS, SQL, ...
 
         // TO UPDATE.
+        /*
+
         document.querySelector("#diary_showcase_#_" + id + " p").setAttribute("contenteditable", true);
         document.querySelector("#diary_showcase_#_ " + id + " h1").setAttribute("contenteditable", true);
 
         document.querySelector("#diary_showcase_#_" + id).setAttribute("style", "color: #000; background-color: #fff");
         document.querySelector("#diary_showcase_#_" + id + " span").setAttribute("style", "color: #fff;");
+
+        */
+        // IMPROVED version
+        // console.log(id);
+        var direct_id = document.querySelector("main").childNodes[id].id;
+
+
+        // document.getElementById("diary_showcase_#_6")
+        // .setAttribute("contenteditable", true);
+        // .setAttribute("contenteditable", true);
+
+        // .setAttribute("style", "color: #000; background-color: #fff");
+        // .setAttribute("style", "color: #fff;");
+
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
         document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
 
-        document.querySelector("#diary_showcase_#_" + id).classList.add("text_being_edited");
+        // document.querySelector("#diary_showcase_#_" + id).classList.add("text_being_edited");
 
         // AFTER the edition
-        document.querySelector("#update_btn").setAttribute("onclick", "javascript:editate_text()");
+        document.querySelector("#update_btn").setAttribute("onclick", "javascript:editate_text(" + id  + ")");
         
     }
 
-    function editate_text () {
-        var testVar = document.querySelector("#diary_showcase_#_"+ id).classList.contains("text_being_edited");
+    function editate_text (id) {
 
-        if (testVar) {
-            var id_to_update = parseInt(document.querySelector("#update_id_text").innerHTML);
-            var text_to_update = document.querySelector("#text_to_update").innerHTML;
+        var direct_id = document.querySelector("main").childNodes[id].id;
 
-            // update button option
-            /// To test HERE...
-            window.location.href= './controllers/php_statements_.php?update_id='+id_to_update+'&text_to_update='+text_to_update;
+        const regex = /^diary_showcase_/;
+        var length_of_sections = document.querySelector("main").childNodes.length;
+
+        var count = 0;
+
+        /*
+            Missing:
+            1. To remove from all the sections ONLY the ones that are starting with: diary_showcase_
+            2. To take from THAT array, the numbers and loop only from those numbers.
+        */
+
+        while (count <= length_of_sections) {
+            count += 1;
+            if(regex.test(direct_id)) // Starting with: diary_showcase_ [In cycle process]
+            {
+                console.log(document.querySelector("main").childNodes[count]);
+            } else {
+                console.log("Is not present")
+            }
         }
+            
+
+        // var testVar = document.querySelector("#diary_showcase_#_"+ id).classList.contains("text_being_edited");
+
+        // if (testVar) {
+        //     var id_to_update = parseInt(document.querySelector("#update_id_text").innerHTML);
+        //     var text_to_update = document.querySelector("#text_to_update").innerHTML;
+
+        //     // update button option
+        //     /// To test HERE...
+        //     window.location.href= './controllers/php_statements_.php?update_id='+id_to_update+'&text_to_update='+text_to_update;
+        // }
        
     }
 </script>
