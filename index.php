@@ -102,61 +102,48 @@ require_once('API/private/conexion.php');
         // console.log(id);
         var direct_id = document.querySelector("main").childNodes[id].id;
 
-
-        // document.getElementById("diary_showcase_#_6")
-        // .setAttribute("contenteditable", true);
-        // .setAttribute("contenteditable", true);
-
-        // .setAttribute("style", "color: #000; background-color: #fff");
-        // .setAttribute("style", "color: #fff;");
-
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
         document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
 
-        // document.querySelector("#diary_showcase_#_" + id).classList.add("text_being_edited");
 
         // AFTER the edition
+        // FIX this that needs double click... 🙏⚠️👇🏻
         document.querySelector("#update_btn").setAttribute("onclick", "javascript:editate_text(" + id  + ")");
         
     }
 
     function editate_text (id) {
-
-        var direct_id = document.querySelector("main").childNodes[id].id;
+        var elementToChoose = "diary_showcase_#_" + id;
+        var direct_id = document.getElementById(elementToChoose).getAttribute("id");
 
         const regex = /^diary_showcase_/;
         var length_of_sections = document.querySelector("main").childNodes.length;
 
-        var count = 0;
+        var count = 1;
 
         /*
             Missing:
-            1. To remove from all the sections ONLY the ones that are starting with: diary_showcase_
-            2. To take from THAT array, the numbers and loop only from those numbers.
+            1. To remove from all the sections ONLY the ones that are starting with: diary_showcase_ - 
+            2. To take from THAT array, the numbers and loop only from those numbers - from the test ENDED (reference: .childNodes).
         */
+        let elementChose;
 
         while (count <= length_of_sections) {
-            count += 1;
             if(regex.test(direct_id)) // Starting with: diary_showcase_ [In cycle process]
             {
-                console.log(document.querySelector("main").childNodes[count]);
+                elementChose = document.getElementById(elementToChoose);
+                console.log(elementChose);
+                elementChose.setAttribute("contenteditable", true);
+                elementChose.setAttribute("contenteditable", true);
+
+                elementChose.setAttribute("style", "color: #000; background-color: #fff");
+                elementChose.setAttribute("style", "color: #fff;");
+                count = length_of_sections + 1; // To break the loop
             } else {
                 console.log("Is not present")
             }
+            count++;
         }
-            
-
-        // var testVar = document.querySelector("#diary_showcase_#_"+ id).classList.contains("text_being_edited");
-
-        // if (testVar) {
-        //     var id_to_update = parseInt(document.querySelector("#update_id_text").innerHTML);
-        //     var text_to_update = document.querySelector("#text_to_update").innerHTML;
-
-        //     // update button option
-        //     /// To test HERE...
-        //     window.location.href= './controllers/php_statements_.php?update_id='+id_to_update+'&text_to_update='+text_to_update;
-        // }
-       
     }
 </script>
 
