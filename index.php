@@ -127,22 +127,19 @@ require_once('API/private/conexion.php');
             2. To take from THAT array, the numbers and loop only from those numbers - from the test ENDED (reference: .childNodes).
         */
         let elementChose;
+        var elemetCHOSEN = document.getElementById(elementToChoose);
 
         while (count <= length_of_sections) {
             if(regex.test(direct_id)) // Starting with: diary_showcase_ [In cycle process]
             {
-                elementChose = document.getElementById(elementToChoose);
-                console.log(elementChose);
-                elementChose.setAttribute("contenteditable", true);
-                elementChose.setAttribute("contenteditable", true);
-
-                elementChose.setAttribute("style", "color: #000; background-color: #fff");
-                elementChose.setAttribute("style", "color: #fff;");
-                count = length_of_sections + 1; // To break the loop
+                    elementChose = document.getElementById(elementToChoose);
+                    console.log(elementChose);
+                    count = length_of_sections + 1; // To break the loop
             } else {
-                console.log("Is not present")
+                console.log("Is not present");
+                count++;
             }
-            count++;
+
         }
     }
 </script>
