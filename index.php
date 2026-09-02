@@ -108,12 +108,13 @@ require_once('API/private/conexion.php');
 
         // AFTER the edition
         // FIX this that needs double click... 🙏⚠️👇🏻
-        document.querySelector("#update_btn").setAttribute("onclick", "javascript:editate_text(" + id  + ")");
-        
+        var idToEdit = id.toString();
+        editate_text(idToEdit);
     }
 
     function editate_text (id) {
-        var elementToChoose = "diary_showcase_#_" + id;
+        var id = id.toString();
+        var elementToChoose = ("diary_showcase_#_" + id).toString();
         var direct_id = document.getElementById(elementToChoose).getAttribute("id");
 
         const regex = /^diary_showcase_/;
@@ -132,9 +133,9 @@ require_once('API/private/conexion.php');
         while (count <= length_of_sections) {
             if(regex.test(direct_id)) // Starting with: diary_showcase_ [In cycle process]
             {
-                    elementChose = document.getElementById(elementToChoose);
-                    console.log(elementChose);
-                    count = length_of_sections + 1; // To break the loop
+                elementChose = document.getElementById(elementToChoose);
+                console.log(elementChose);
+                count = length_of_sections + 1; // To break the loop
             } else {
                 console.log("Is not present");
                 count++;
