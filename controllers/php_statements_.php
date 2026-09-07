@@ -1,7 +1,6 @@
 <?php
 require_once(__DIR__ . "/../API/private/conexion.php");
 // header('Content-Type: application/json'); 
-// 🫡 THIS FILE SHOULD BE CALLED: DataController.php.
 
 class Data {
     public string $string;

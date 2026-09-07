@@ -78,28 +78,9 @@ require_once('API/private/conexion.php');
         var id = id;
         
         // Next tutorial: document.querySelector("main").childNodes; [to get the child from main]
-        // ES: Php, C.
-
-        // EN: Python, Java.
-
-        // Hindi: JS, C++ [extra liked language: PHP].
-
-        // Portuguese: Pascal, Cobol, Go, ...
-        
-        // Chinese/Japan: JS, SQL, ...
 
         // TO UPDATE.
-        /*
 
-        document.querySelector("#diary_showcase_#_" + id + " p").setAttribute("contenteditable", true);
-        document.querySelector("#diary_showcase_#_ " + id + " h1").setAttribute("contenteditable", true);
-
-        document.querySelector("#diary_showcase_#_" + id).setAttribute("style", "color: #000; background-color: #fff");
-        document.querySelector("#diary_showcase_#_" + id + " span").setAttribute("style", "color: #fff;");
-
-        */
-        // IMPROVED version
-        // console.log(id);
         var direct_id = document.querySelector("main").childNodes[id].id;
 
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
@@ -107,7 +88,7 @@ require_once('API/private/conexion.php');
 
 
         // AFTER the edition
-        // FIX this that needs double click... 🙏⚠️👇🏻
+        // FIX this that needs double click... 
         var idToEdit = id.toString();
         editate_text(idToEdit);
     }
@@ -124,17 +105,16 @@ require_once('API/private/conexion.php');
 
         /*
             Missing:
-            1. To remove from all the sections ONLY the ones that are starting with: diary_showcase_ - 
-            2. To take from THAT array, the numbers and loop only from those numbers - from the test ENDED (reference: .childNodes).
+            1. Activate button.
         */
         let elementChose;
-        var elemetCHOSEN = document.getElementById(elementToChoose);
 
         while (count <= length_of_sections) {
             if(regex.test(direct_id)) // Starting with: diary_showcase_ [In cycle process]
             {
                 elementChose = document.getElementById(elementToChoose);
-                console.log(elementChose);
+                elementChose.childNodes[5].setAttribute("contenteditable", true);
+                elementChose.childNodes[8].setAttribute("contenteditable", true);
                 count = length_of_sections + 1; // To break the loop
             } else {
                 console.log("Is not present");
