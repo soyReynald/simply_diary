@@ -63,7 +63,7 @@ require_once('API/private/conexion.php');
         </section>
          <?php
 
-         include_once("views/diary_text_view.php");
+            include_once("views/diary_text_view.php");
 
          ?>
 
@@ -115,6 +115,20 @@ require_once('API/private/conexion.php');
                 elementChose = document.getElementById(elementToChoose);
                 elementChose.childNodes[5].setAttribute("contenteditable", true);
                 elementChose.childNodes[8].setAttribute("contenteditable", true);
+
+                elementChose.style.backgroundColor = "white";
+                elementChose.style.color = "black";
+                elementChose.childNodes[1].style.color = "white";
+                elementChose.childNodes[12].style.color = "black";
+                elementChose.childNodes[12].style.backgroundColor = "white";
+                elementChose.childNodes[12].style.border = "black";
+                elementChose.childNodes[12].style.borderRadius = "5px";
+
+                elementChose.childNodes[12].style.borderColor = "black";
+                elementChose.childNodes[12].style.borderStyle = "solid";
+                elementChose.childNodes[12].style.borderWidth = "1px";
+                
+                elementChose.childNodes[12].setAttribute("onclick", "php_statements.php?update_id=${direct_id}");
                 count = length_of_sections + 1; // To break the loop
             } else {
                 console.log("Is not present");
