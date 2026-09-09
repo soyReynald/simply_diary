@@ -32,7 +32,7 @@
 
                         <br/>
                         
-                        <button id='update_btn' onclick='javascript:activate_editable({$row["id"]})' class='cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Update</button>
+                        <a id='update_btn' onclick='javascript:activate_editable({$row["id"]})' class='cursor-pointer bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Update</a>
                         <a id='delete_btn' class='bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded' href='./controllers/php_statements_.php?delete_id={$row["id"]}'>Delete</a>
                     </section>";
 

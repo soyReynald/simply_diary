@@ -103,10 +103,6 @@ require_once('API/private/conexion.php');
 
         var count = 1;
 
-        /*
-            Missing:
-            1. Activate button.
-        */
         let elementChose;
 
         while (count <= length_of_sections) {
@@ -127,15 +123,34 @@ require_once('API/private/conexion.php');
                 elementChose.childNodes[12].style.borderColor = "black";
                 elementChose.childNodes[12].style.borderStyle = "solid";
                 elementChose.childNodes[12].style.borderWidth = "1px";
-                
-                elementChose.childNodes[12].setAttribute("onclick", "php_statements.php?update_id=${direct_id}");
+
                 count = length_of_sections + 1; // To break the loop
             } else {
                 console.log("Is not present");
                 count++;
             }
+        };
 
-        }
+        //🪶 TO send the UPDATE with an EVENT LISTENER - NEXT task.
+        sendUpdate(id, count);
+    }
+
+    function sendUpdate(id, max_count) {
+        var elementToChoose = ("diary_showcase_#_" + id).toString();
+        elementChose = document.getElementById(elementToChoose);
+        var max_count = max_count;
+ 
+        //🪶 TO send the UPDATE with an EVENT LISTENER - NEXT task.
+        while (max_count < 16) {
+            if(max_count === 16){
+                max_count++;
+                if(max_count === 17) {
+                    var id_to_update = id;
+                    elementChose.childNodes[12].href = "controllers/php_statements.php?update_id="+ id;
+                }
+            }
+        };
+        
     }
 </script>
 
