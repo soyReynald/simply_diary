@@ -132,26 +132,36 @@ require_once('API/private/conexion.php');
         };
 
         //🪶 TO send the UPDATE with an EVENT LISTENER - NEXT task.
-        sendUpdate(id, count);
+        // sendUpdate(id, count); // TO remove later.
+        var elementToChoose = ("diary_showcase_#_" + id).toString();
+        var elementChoseTOchangeBTN = undefined;
+        elementChoseTOchangeBTN = elementChose.querySelector("#update_btn");
+        elementChoseTOchangeBTN.addEventListener("click", function() {
+            sendUpdate(id, count)
+        });
+
     }
 
     function sendUpdate(id, max_count) {
         var elementToChoose = ("diary_showcase_#_" + id).toString();
         elementChose = document.getElementById(elementToChoose);
         var max_count = max_count;
- 
-        //🪶 TO send the UPDATE with an EVENT LISTENER - NEXT task.
-        while (max_count < 16) {
-            if(max_count === 16){
-                max_count++;
-                if(max_count === 17) {
-                    var id_to_update = id;
-                    elementChose.childNodes[12].href = "controllers/php_statements.php?update_id="+ id;
-                }
-            }
-        };
         
-    }
+        let btn_to_update = elementChose.querySelector("#update_btn");
+        
+        //🪶 TO send the UPDATE with an EVENT LISTENER - NEXT task.
+        
+        let count = localStorage.setItem("count", "0");
+
+        let sum = Number(localStorage.getItem("count")) + 1;
+        let max_count_in_this_scope = Number(max_count) + 1;
+
+        if (sum >= 0 && max_count < max_count_in_this_scope ) {
+            max_count_in_this_scope = Number(max_count) + 1;
+            window.location.href = "/test/";
+        };
+
+    };
 </script>
 
 </html>
