@@ -29,6 +29,7 @@ class InsertData {
     }
 }
 
+// GETTING THE DATA and INSERTING in the database TROUGH the call of the method insertData_function() of the class InsertData.
 if(isset($_POST) && isset($_POST['diary_text']) && isset($_POST['diary_title'])) {
     $text_to_diary = mysqli_real_escape_string($con_string, $_POST['diary_text']);
     $title_to_diary = mysqli_real_escape_string($con_string, $_POST['diary_title']);

@@ -25,7 +25,7 @@
                     </span>
                     
                         <span style='display: none;' id='update_id_text'>{$row["id"]}</span>    
-                        <h1 contenteditable='false' style='text-align:center;'>{$row["title"]} </h1></br>
+                        <h1 contenteditable='false' style='text-align:center;' class='title_to_update'>{$row["title"]} </h1></br>
                         <p contenteditable='false' id='text_to_update'>    
                             {$row["text_space_"]}
                         </p>

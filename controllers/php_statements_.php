@@ -12,7 +12,7 @@ class Data {
     }
 
     function selectData () {
-        return $this->string = "SELECT * FROM diary_note_space_";
+        return $this->string = "SELECT * FROM diary_note_space_"; //🙏🪶😇 to remove the * from here.
     }
 
     function return_details_(string $functionality) {
@@ -37,16 +37,14 @@ class Data {
         $this->con_string->close();
     }
 
-    function updateData (int $id, mysqli $con_string, string $text_string_) {
+    // make this function and CLASS above more secure with the security standards.
+    function updateData (int $id, mysqli $con_string, string $text_string_, string $title) {
         $id = mysqli_real_escape_string($con_string, $_GET['update_id'] ?? null);
-        $text_string_ = mysqli_real_escape_string($con_string, $_GET['text_to_update'] ?? null);
+        $text_string_ = trim(mysqli_real_escape_string($con_string, $_GET['diary_text'] ?? null));
+        $text_string_title = mysqli_real_escape_string($con_string, $_GET['title_'] ?? null);
 
         /// TO test here
-        $this->result = <<<INPUT
-        UPDATE diary_note_space_
-        SET text_space_ = '{$text_string_}'
-        WHERE id = '{$id}'
-        INPUT;
+        $this->result = "UPDATE diary_note_space_ SET text_space_ = '{$text_string_}', title = '{$text_string_title}' WHERE id = '{$id}'";
 
         $sql_query = $this->con_string->query($this->result);
         if ($sql_query === TRUE) { 
@@ -75,18 +73,18 @@ if(isset($_GET['delete_id'])){
 
 // ----
 // UPDATE section - IN progress HERE...
-if(isset($_GET['update_id'])){ 
+if(isset($_GET['update_id']) && isset($_GET['diary_text']) && isset($_GET['title_'])) { // ! To correct this to be POST in a future. 
 
     $id = mysqli_real_escape_string($con_string, $_GET['update_id']);
-    $text = mysqli_real_escape_string($con_string, $_GET['text_to_update']);
+    $text = mysqli_real_escape_string($con_string, $_GET['diary_text']);
+    $title = mysqli_real_escape_string($con_string, $_GET['title_']);
 
     $data = new Data($con_string);
-    $data->updateData($id, $con_string, $text);
+    $data->updateData($id, $con_string, $text, $title);
 
     // return json_encode($testing_statement, JSON_PRETTY_PRINT );
 
-}
-// END of UPDATE section.
+};
 // ----
 
 ?>

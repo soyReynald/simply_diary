@@ -1,7 +1,6 @@
 <?php
-// Requesting the conexion
+// Requesting the conexion [Ok]
 require_once('API/private/conexion.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="en" version="5">
@@ -19,12 +18,12 @@ require_once('API/private/conexion.php');
         <span>
             <span id="date"><?=  date("F j, Y"); ?></span>
         </span>
-        <img src="public/img/logo_design.png" />
+        <img src="public/img/logo_design.png" alt="Diary logo" />
     </header>
     <main>
         <!-- Section to insert text -->
         <section id="text_saver">
-            <form action="./controllers/InsertDataClass.php" method="POST"> <!-- Done: 6/10/2026 -->
+            <form action="./controllers/InsertDataClass.php" method="POST">
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
                             <div class="col-span-full">
@@ -71,30 +70,24 @@ require_once('API/private/conexion.php');
     
     
 </body>
-
-<script type="text/javascript">
+<!-- src to be added -->
+<script type="text/javascript"> 
+    // [What] THIS functions are supposed to be in a file... (src)
     function activate_editable (id) {
-
         var id = id;
-        
-        // Next tutorial: document.querySelector("main").childNodes; [to get the child from main]
-
-        // TO UPDATE.
-
         var direct_id = document.querySelector("main").childNodes[id].id;
 
+        // DEACTIVATING [what].
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
+        // DEACTIVATING [what].
         document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
 
-
-        // AFTER the edition
-        // FIX this that needs double click... 
         var idToEdit = id.toString();
         editate_text(idToEdit);
     }
 
     function editate_text (id) {
-        var id = id.toString();
+        var id = id.toString(); // In a future maybe is not necessary to make it STRING again.
         var elementToChoose = ("diary_showcase_#_" + id).toString();
         var direct_id = document.getElementById(elementToChoose).getAttribute("id");
 
@@ -109,8 +102,8 @@ require_once('API/private/conexion.php');
             if(regex.test(direct_id)) // Starting with: diary_showcase_ [In cycle process]
             {
                 elementChose = document.getElementById(elementToChoose);
-                elementChose.childNodes[5].setAttribute("contenteditable", true);
-                elementChose.childNodes[8].setAttribute("contenteditable", true);
+                elementChose.childNodes[5].setAttribute("contenteditable", true); // title
+                elementChose.childNodes[8].setAttribute("contenteditable", true); // diary text
 
                 elementChose.style.backgroundColor = "white";
                 elementChose.style.color = "black";
@@ -137,7 +130,7 @@ require_once('API/private/conexion.php');
         var elementChoseTOchangeBTN = undefined;
         elementChoseTOchangeBTN = elementChose.querySelector("#update_btn");
         elementChoseTOchangeBTN.addEventListener("click", function() {
-            sendUpdate(id, count)
+            sendUpdate(id, count);
         });
 
     }
@@ -148,6 +141,9 @@ require_once('API/private/conexion.php');
         var max_count = max_count;
         
         let btn_to_update = elementChose.querySelector("#update_btn");
+
+        let diary_text_to_update = elementChose.querySelector("#text_to_update").textContent;
+        let diary_title_to_update = elementChose.querySelector(".title_to_update").textContent;
         
         //🪶 TO send the UPDATE with an EVENT LISTENER - NEXT task.
         
@@ -158,7 +154,9 @@ require_once('API/private/conexion.php');
 
         if (sum >= 0 && max_count < max_count_in_this_scope ) {
             max_count_in_this_scope = Number(max_count) + 1;
-            window.location.href = "/test/";
+
+            window.location.href = "/simply_diary/controllers/php_statements_.php?update_id=" + id + "&diary_text=" + diary_text_to_update + "&title_=" + diary_title_to_update; // To update later
+
         };
 
     };
