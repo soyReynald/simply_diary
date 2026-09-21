@@ -29,6 +29,8 @@ class Data {
         $sql_query = $this->con_string->query($this->result);
         if ($sql_query === TRUE) { 
             echo "Data deleted"; 
+            sleep(5);
+            header("Location: ../index.php");
             // we then refresh ✨
         } else {
             die("Error"); 
@@ -40,7 +42,7 @@ class Data {
     // make this function and CLASS above more secure with the security standards.
     function updateData (int $id, mysqli $con_string, string $text_string_, string $title) {
         $id = mysqli_real_escape_string($con_string, $_GET['update_id'] ?? null);
-        $text_string_ = trim(mysqli_real_escape_string($con_string, $_GET['diary_text'] ?? null));
+        $text_string_ = trim(mysqli_real_escape_string($con_string, $_GET['diary_text'] ?? null)); // To check this string.
         $text_string_title = mysqli_real_escape_string($con_string, $_GET['title_'] ?? null);
 
         /// TO test here
@@ -49,6 +51,8 @@ class Data {
         $sql_query = $this->con_string->query($this->result);
         if ($sql_query === TRUE) { 
             echo "Data updated"; // TO TEST this part.
+            sleep(5);
+            header("Location: ../index.php");
             // we then refresh ✨
         } else {
             die("Error"); 
@@ -56,7 +60,7 @@ class Data {
 
         $this->con_string->close();
     }
-}
+};
 
 // DELETE section
 if(isset($_GET['delete_id'])){ 
