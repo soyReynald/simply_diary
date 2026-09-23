@@ -45,18 +45,30 @@ class Data {
         $text_string_ = trim(mysqli_real_escape_string($con_string, $_GET['diary_text'] ?? null)); // To check this string.
         $text_string_title = mysqli_real_escape_string($con_string, $_GET['title_'] ?? null);
 
-        $diary_title = urlencode($text_string_title); // 👍 NEXT TASK: TO check if the string doesn't change, and also WHAT is changing.
-        /// TO test here
+        $diary_title = urlencode($text_string_title);
+        
+        //👍😊 TO test here AND to ensure the DATA trough the method to clean the variables and the query.
         $this->result = "UPDATE diary_note_space_ SET text_space_ = '{$text_string_}', title = '{$text_string_title}' WHERE id = '{$id}'";
 
-        $sql_query = $this->con_string->query($this->result);
-        if ($sql_query === TRUE) { 
-            echo "Data updated"; // TO TEST this part.
-            $_GET['diary_text'] = urlencode($text_string_); // 👍 
-            if (isset($_GET['diary_text']) && urlencode($_GET['diary_text']) != $text_string) { // NEXT TASK: TO check if the string doesn't change, and also WHAT is changing.
-                echo "Sorry, we catch you";
+        $sql_query = null;
+
+        $security_test = $diary_title !== urlencode($_GET['title_']) ? 0 : 1;
+        
+        if (isset($diary_title) && $security_test && $sql_query == null) { // The operator !== means: NOT CHANGED.
+            
+            if ($sql_query == null) {
+                $sql_query = $this->con_string->query($this->result);
+            }
+
+            if($sql_query == null) {
+                echo "Sorry, we got you";
                 exit();
             }
+            
+        }
+        
+        if  ($sql_query === TRUE) { 
+            echo "Data updated"; // TO TEST this part.
             sleep(5);
             header("Location: ../index.php");
             // we then refresh ✨
