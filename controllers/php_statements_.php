@@ -23,8 +23,21 @@ class Data {
 
     function deleteData (int $id, mysqli $con_string) {
         $id = mysqli_real_escape_string($con_string, $_GET['delete_id'] ?? null);
+        
+        // testing encriptations
+        if (urlencode($id)) {
+            $id_encoded = 0; // IS NOT corrupted
+        } else {
+            $id_coded = 1; // IS corrupted
+        } // IS ALMOST EQUAL: $id_encoded !== urlencode($_GET['delete_id']) ? 0 : 1;
 
-        $this->result = "DELETE from diary_note_space_ WHERE id = '{$id}'";
+        if ($id_encoded === 0) { // 0: means 0 errors.
+            $this->result = "DELETE from diary_note_space_ WHERE id = '{$id}'";
+        } else {
+            echo "Sorry, we catched you.";
+            exit();
+        }
+
 
         $sql_query = $this->con_string->query($this->result);
         if ($sql_query === TRUE) { 
@@ -79,6 +92,12 @@ class Data {
         $this->con_string->close();
     }
 };
+
+// LAW of importancy:
+// 1. Urgently and important ===  usually first.
+// 2. Urgently not important (sometimes is MORE than important) === usually first.
+// 3. Not urgent yet: Important - more strictly important.
+// 4. Important and not urgent - could be placed in pause...
 
 // DELETE section
 if(isset($_GET['delete_id'])){ 
