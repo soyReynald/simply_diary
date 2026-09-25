@@ -15,7 +15,7 @@ class InsertData {
         $this->con_string = $con_string;
     }
 
-    function insertData_function ($text_from_diary, $title, $con_string) {
+    function insertData_function (string $text_from_diary, string $title, mysqli $con_string) {
         $this->sql = "INSERT INTO `diary_note_space_` (`text_space_`, `user_id_related`, `date`, `title`) VALUES ('{$this->text_from_diary}', $this->sample_user, current_timestamp(), '{$this->title}')";
         $result = $this->con_string->query($this->sql);
         if ($result === TRUE) { 

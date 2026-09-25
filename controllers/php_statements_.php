@@ -26,9 +26,9 @@ class Data {
         
         // testing encriptations
         if (urlencode($id)) {
-            $id_encoded = 0; // IS NOT corrupted
+            $id_encoded = 0; // IS NOT prompt to be corrupted
         } else {
-            $id_coded = 1; // IS corrupted
+            $id_coded = 1; // IS prompt corrupted
         } // IS ALMOST EQUAL: $id_encoded !== urlencode($_GET['delete_id']) ? 0 : 1;
 
         if ($id_encoded === 0) { // 0: means 0 errors.
