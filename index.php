@@ -72,14 +72,14 @@ require_once('API/private/conexion.php');
 </body>
 <!-- src to be added -->
 <script type="text/javascript"> 
-    // [What] THIS functions are supposed to be in a file... (src)
+    // [What] THIS functions are supposed to be in a file... (src).
     function activate_editable (id) {
         var id = id;
-        var direct_id = document.querySelector("main").childNodes[id].id;
+        var direct_id = document.querySelector("main").childNodes[id].id; 
 
-        // DEACTIVATING [what].
+        // DEACTIVATING [what] ==> Deactivating the attribute.
         document.querySelector("#delete_btn").setAttribute("aria-disabled", "true");
-        // DEACTIVATING [what].
+        // DEACTIVATING [what] == > Deactivating the href return (SHORT HAND METHOD simillar as: id.click.preventDefault(); ).
         document.querySelector("#delete_btn").setAttribute("href", "javascript:void(0)");
 
         var idToEdit = id.toString();
@@ -87,6 +87,7 @@ require_once('API/private/conexion.php');
     }
 
     function editate_text (id) {
+
         var id = id.toString(); // In a future maybe is not necessary to make it STRING again.
         var elementToChoose = ("diary_showcase_#_" + id).toString();
         var direct_id = document.getElementById(elementToChoose).getAttribute("id");
