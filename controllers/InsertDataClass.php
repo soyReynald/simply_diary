@@ -23,11 +23,19 @@ class InsertData {
             /* bind parameters for markers */
             $smtp = $con_string->prepare($sql);
 
+            $text_without_special_characters = $con_string->real_escape_string($this->text_from_diary);
+            $fixed_text_ = preg_replace("/\\r\\n/",'\n', $text_without_special_characters);
+
             //🙅‍♂️📌🫷Three is sign: STREGTH.
-            $smtp->bind_param("sss", $this->text_from_diary, $this->sample_user, $this->title);
+            $smtp->bind_param("sss", $fixed_text_, $this->sample_user, $this->title);
 
             /* execute query */
             $smtp->execute();
+
+            // SESSIONS and soft sleep before sending user to the back INDEX site.
+            $_SESSION["user_id"] = $this->sample_user;
+            sleep(2);
+            header("Location: ../index.php");
 
             echo "User text is inserted";
 

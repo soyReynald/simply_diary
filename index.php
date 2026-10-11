@@ -1,6 +1,8 @@
 <?php
 // Requesting the conexion [Ok]
 require_once('API/private/conexion.php');
+// TO start session.
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en" version="5">
@@ -38,9 +40,7 @@ require_once('API/private/conexion.php');
                                 <label for="diary_text" class="block text-sm/6 font-medium text-white-900">Diary text:</label>                                
                                 <div class="mt-2">
                                     <textarea id="diary_text" name="diary_text" rows="3"
-                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-                                        
-                                    </textarea>
+                                        class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"></textarea>
                                 </div>
                                
                                 <p class="mt-3 text-sm/6 text-gray-600">
