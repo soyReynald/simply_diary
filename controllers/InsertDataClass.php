@@ -34,6 +34,7 @@ class InsertData {
 
             // SESSIONS and soft sleep before sending user to the back INDEX site.
             $_SESSION["user_id"] = $this->sample_user;
+            // Took from an old note: -- Cookie to BE SAVED - PROJECTS prepared.
             sleep(2);
             header("Location: ../index.php");
 
@@ -43,7 +44,6 @@ class InsertData {
         } catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-        
 
         $this->con_string->close(); // TO FIX con_string variable in the next video
     }
@@ -56,8 +56,6 @@ if(isset($_POST) && isset($_POST['diary_text']) && isset($_POST['diary_title']))
     $text_to_diary = mysqli_real_escape_string($con_string, $_POST['diary_text']);
     $title_to_diary = mysqli_real_escape_string($con_string, $_POST['diary_title']);
 
-    // $text_from_diary = $_POST['diary_text'];
-    // $title_from_diary = $_POST['diary_title'];
     $insertData = new InsertData($text_to_diary, $title_to_diary,  $con_string);
     $insertData->insertData_function($text_to_diary, $title_to_diary, $con_string);
 }
