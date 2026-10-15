@@ -63,7 +63,48 @@
         } catch (error) {
             console.error(error.message);
         }
-    }        
+    };
+    
+    function getRandomDigitsCookie(limit) {
+    var cuadratic_increaser_random_variable_ = 0;
+
+    var counter_to_limit = limit;
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    
+    for (var i = 0; i < counter_to_limit; i++) {
+      if (i < counter_to_limit) {
+        var number_random_gotten_ = getRandomInt(50);
+
+        // Sanguineal SAMPLE (coding context SAMPLE)...
+        if (number_random_gotten_ <= 10 && number_random_gotten_ <= 30){
+          cuadratic_increaser_random_variable_ = number_random_gotten_.toString() + i;
+        }
+        // Melancholic SAMPLE (coding context SAMPLE)...
+        if (number_random_gotten_ <= 20 && number_random_gotten_ <= 35){
+          number_random_gotten_ = getRandomInt(50);
+          cuadratic_increaser_random_variable_ += number_random_gotten_.toString() + i;
+        }
+        // Phlematic SAMPLE (coding context SAMPLE)...
+        if (number_random_gotten_ <= 35 && number_random_gotten_ <= 45){
+          number_random_gotten_ = getRandomInt(50);
+          cuadratic_increaser_random_variable_ += number_random_gotten_.toString() + i;
+        }
+        // Choleric SAMPLE (coding context SAMPLE)...
+        if (number_random_gotten_ <= 0 && number_random_gotten_ <= 15){
+          number_random_gotten_ = getRandomInt(50);
+          cuadratic_increaser_random_variable_ += number_random_gotten_.toString() + i;
+        }
+      }
+    }
+
+    return cuadratic_increaser_random_variable_;
+  };
+
+
+  console.log(getRandomDigitsCookie(1));
 </script>
 
 </html>
