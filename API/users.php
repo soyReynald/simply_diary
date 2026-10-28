@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['username'] = $data['username'];
 $_SESSION['password'] = $data['password'];
-$_SESSION['salt'] = $data['salt'];
+$_SESSION['salt'] = $data['salt']; // The salt should be saved as well as USING cookie generation (s).
 
 $encryptedPSW = SHA1($_SESSION['password']).$_SESSION['salt'];
 
@@ -22,8 +22,8 @@ if (isset($encryptedPSW)) {
 /*
 Steps
 
-1. SHOW UP THE JSON in the CLIENT-SIDE - ✔️ - TESTING 🧭.
-2. Compare SAME PASSWORD with A COPY OF IT ✔️.
+1. SHOW UP THE JSON in the CLIENT-SIDE - ✔️ - WORKING.
+2. Compare SAME PASSWORD with A COPY OF IT ✔️ - TESTING 🧭.
 3. Organize the code so that the code also bring forth an answer to make a redirection ✔️ - Check in the clientside [✔️].
 4. To place a conditional IN THE BEGININING of the file to test IF it is TO BE from an USER that is approved, tested or permitted.
 4.1 PLACING a CONDITIONAL to REDIRECT FROM php THE USER in case that he was GRANTED or ACCESS permitted.
@@ -36,8 +36,8 @@ $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
 // Access your variable
-$username = isset($data['username']) ? $data['username'] : "placeholderUsername"; 
-$userPassword = isset($data['password']) ? $data['password'] :"placeholderPassword";
+$username = isset($data['username']) ? $data['username'] : "testUser"; 
+$userPassword = isset($data['password']) ? $data['password'] :"testPassword";
 $passwordFromUser_salt_ = isset($data['salt']) ? $data['salt'] : "720";
 
 $myObj = new stdClass();
