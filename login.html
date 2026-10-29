@@ -39,11 +39,15 @@
         var user_name_ = document.getElementById("username").value;
         var password_ = document.getElementById("password").value;
 
+    
+        // const url = "http://localhost/simply_diary/api/users.php"; // Not being used yet.
+
+        // Encryptating
         const myData = { username: user_name_, password: password_, salt: 720};
+        const encrypt_psw = myData.password + myData.salt;
+        const myDataTOSend = { username: user_name_, password: encrypt_psw, salt: 720};
 
-        const url = "http://localhost/simply_diary/api/users.php";
-
-        console.log(JSON.stringify(myData)); // Log the JSON string to the console
+        console.log(JSON.stringify(myDataTOSend)); // Log the JSON string to the console
 
         event.preventDefault(); // Prevent the default form submission behavior
 
