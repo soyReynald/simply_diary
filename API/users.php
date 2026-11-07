@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+## Creating a JSON database on intenert for us to be able to use in the future
+// Send a response back to JavaScript
+$data = file_get_contents('php://input');
+print_r($data);
+
+//echo json_encode(["status" => "received", "user" => $username, "encrypted_pw" => $encrypted_pw], JSON_PRETTY_PRINT);
+// $myJSON = json_encode($myObj, JSON_PRETTY_PRINT);
+
+
+/*
 $_SESSION['username'] = $data['username'];
 $_SESSION['password'] = $data['password'];
 $_SESSION['salt'] = $data['salt']; // The salt should be saved as well as USING cookie generation (s).
@@ -28,7 +39,7 @@ Steps
 4. To place a conditional IN THE BEGININING of the file to test IF it is TO BE from an USER that is approved, tested or permitted.
 4.1 PLACING a CONDITIONAL to REDIRECT FROM php THE USER in case that he was GRANTED or ACCESS permitted.
 
-*/
+
 // Read the raw POST data from the request body
 $json = file_get_contents('php://input');
 
@@ -52,13 +63,7 @@ $myObj->encryptation = $_SESSION['salt'];
 $testedSalt = $salt == $passwordFromUser_salt_;
 $encrypted_pw = SHA1($userPassword).strval($myObj->encryptation);
 
-
-## Creating a JSON database on intenert for us to be able to use in the future
-// Send a response back to JavaScript
-if ($testedSalt) {
-    echo json_encode(["status" => "received", "user" => $username, "encrypted_pw" => $encrypted_pw], JSON_PRETTY_PRINT);
-}
-// $myJSON = json_encode($myObj, JSON_PRETTY_PRINT);
+*/
 
 
 ?>
